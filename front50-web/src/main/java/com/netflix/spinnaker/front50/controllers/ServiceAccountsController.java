@@ -43,7 +43,8 @@ public class ServiceAccountsController {
   }
 
   @RequestMapping(method = RequestMethod.POST)
-  public ServiceAccount createServiceAccount(@RequestBody ServiceAccount serviceAccount) {
+  public ServiceAccount createServiceAccount(@RequestBody ServiceAccount serviceAccount)
+      throws InterruptedException {
     return serviceAccountService.createServiceAccount(serviceAccount);
   }
 

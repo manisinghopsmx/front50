@@ -66,9 +66,12 @@ public class ServiceAccountsService {
     return serviceAccountDAO.all();
   }
 
-  public ServiceAccount createServiceAccount(ServiceAccount serviceAccount) {
+  public ServiceAccount createServiceAccount(ServiceAccount serviceAccount)
+      throws InterruptedException {
     ServiceAccount acct = serviceAccountDAO.create(serviceAccount.getId(), serviceAccount);
+    wait(10000);
     syncUsers(Collections.singletonList(acct));
+    wait(10000);
     return acct;
   }
 
